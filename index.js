@@ -59,12 +59,12 @@ module.exports = function create (opts) {
       bounds = bounds || {}
 
       // bounds may not be populated on all OSes
-      if (bounds.x === 0 && bounds.y === 0) {
+      // if (bounds.x === 0 && bounds.y === 0) {
         // default to bottom on windows
         if (process.platform === 'win32') bounds.y = size.height - opts.height
         bounds.x = size.width + size.x - (opts.width / 2) // default to right
         cachedBounds = bounds
-      }
+      // }
 
       showWindow(cachedBounds)
     }
