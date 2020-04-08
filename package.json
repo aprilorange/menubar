@@ -1,5 +1,5 @@
 {
-  "name": "menubar",
+  "name": "@egoist/menubar",
   "version": "8.0.1",
   "author": "Max Ogden",
   "bugs": {
@@ -7,8 +7,7 @@
   },
   "description": "high level way to create menubar desktop applications with electron",
   "files": [
-    "/assets",
-    "/lib"
+    "/dist"
   ],
   "homepage": "https://github.com/maxogden/menubar",
   "keywords": [
@@ -25,7 +24,7 @@
     "app"
   ],
   "license": "BSD-2-Clause",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -34,28 +33,29 @@
     "url": "https://github.com/maxogden/menubar.git"
   },
   "scripts": {
-    "build": "rimraf lib/ && tsc",
+    "build": "rollup -c",
     "deploy": "yarn build && standard-version",
     "docs": "typedoc",
     "lint": "tsc --noEmit && eslint . --ext ts",
-    "test": "jest"
+    "test": "npm run build"
   },
-  "types": "lib/index.d.ts",
-  "dependencies": {
-    "electron-positioner": "^4.1.0"
-  },
+  "types": "dist/index.d.ts",
   "devDependencies": {
+    "electron-positioner": "^4.1.0",
     "@amaurymartiny/config": "^1.0.11",
+    "@rollup/plugin-commonjs": "^11.0.2",
     "@types/jest": "^25.1.2",
     "electron": "^8.0.0",
     "jest": "^25.1.0",
     "rimraf": "^3.0.2",
+    "rollup": "^2.3.4",
+    "rollup-plugin-typescript2": "^0.27.0",
     "standard-version": "^7.1.0",
     "ts-jest": "^25.2.0",
     "typedoc": "^0.16.9",
     "typedoc-plugin-markdown": "^2.2.16",
     "typedoc-plugin-no-inherit": "^1.1.10",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "electron": "^8.0.0"

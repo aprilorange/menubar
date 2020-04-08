@@ -276,16 +276,6 @@ export class Menubar extends EventEmitter {
 
     this._positioner = new Positioner(this._browserWindow);
 
-    this._browserWindow.on('blur', () => {
-      if (!this._browserWindow) {
-        return;
-      }
-
-      this._browserWindow.isAlwaysOnTop()
-        ? this.emit('focus-lost')
-        : this.hideWindow();
-    });
-
     if (this._options.showOnAllWorkspaces !== false) {
       this._browserWindow.setVisibleOnAllWorkspaces(true);
     }
